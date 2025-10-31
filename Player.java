@@ -4,7 +4,9 @@ public class Player extends Actor {
     private int speed = 3;
     private int auraTotal = 0;
 
-    public Player() { setImage(new GreenfootImage("player.png")); }
+    public Player() { 
+        setImage(Sprite.loadOrFallback("accesories_MazeRunner67ers_APCSA/67Kid_mazeruner_User/six_Seven_Kid.jpg", "67kid.png", "player.png"));
+    }
 
     public void act() {
         handleMove();

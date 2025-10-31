@@ -11,9 +11,20 @@ public class Map_Aura_Coins extends World {
     private int tick = 0;
     private Music_Manager music = new Music_Manager();
 
+    // Grid for BFS (0 open, 1 wall). Currently all open; hook real walls later.
+    private final int tileSize = 20;
+    private final int cols;
+    private final int rows;
+    private final int[][] grid;
+
     public Map_Aura_Coins() {
         super(600, 400, 1);
-        setBackground(new GreenfootImage("bg.png"));
+        setBackground(Sprite.loadOrFallback("accesories_MazeRunner67ers_APCSA/mazes/Mazes_BrickWalls.webp", "bg.png"));
+
+        cols = getWidth() / tileSize;
+        rows = getHeight() / tileSize;
+        grid = new int[cols][rows]; // all zeros for now
+
         player = new Player();
         addObject(player, getWidth()/2, getHeight()/2);
 
@@ -39,6 +50,9 @@ public class Map_Aura_Coins extends World {
 
         showText("Aura: " + auraCount + " / " + goalScore + " | Enemies: " + enemies.size(), 300, 15);
     }
+
+    public int[][] getGrid() { return grid; }
+    public int getTileSize() { return tileSize; }
 
     public void addAuraPoints(int value) { auraCount += value; }
 
