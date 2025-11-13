@@ -19,7 +19,8 @@ public class enemy_Lebron_67
         y=b;
     }
     public boolean in(int x,int y){//check if reached out of bounds
-        return x >= 0 && y >= 0 && x < mapAura.getLength() && y < mapAura.getLength() && !mapAura.get(x,y);//get returns true when wall is there.
+        return x >= 0 && y >= 0 && x < mapAura.getLength() && y < mapAura.getLength() && !mapAura.get(x,y);
+        //get returns true when wall is there.
     }
     /**
      * An example of a method - replace this comment with your own

@@ -7,15 +7,17 @@
 public class mapAura  
 {
     // instance variables - replace the example below with your own
-    private boolean map[][] = new boolean[25][25];//Map 2D array, true == wall presented
-    //size may vary later
+    private int sizes;
+    //used mapAura as a reference to the object, will change later.
     /**
      * Constructor for objects of class mapAura
      */
-    public mapAura()
+    public mapAura(int s)
     {
+        sizes = s;
     }
-
+    private boolean map[][] = new boolean[sizes][sizes];//Map 2D array, true == wall presented
+    //size may vary later, make sure use getLength when accessing
     /**
      * An example of a method - replace this comment with your own
      * 
