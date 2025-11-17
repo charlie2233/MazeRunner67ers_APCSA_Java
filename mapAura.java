@@ -4,19 +4,26 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class mapAura  
+public class mapAura extends World
 {
     // instance variables - replace the example below with your own
-    private int sizes;
+
+    private static final int SIZES = 25;//size of map 2D array
+    private static final int TILE_SIZE = 20;// 20 pixels per tile
+    private Player player;
+
     //used mapAura as a reference to the object, will change later.
     /**
      * Constructor for objects of class mapAura
      */
-    public mapAura(int s)
+    public mapAura()
     {
-        sizes = s;
+        super(SIZES * TILE_SIZE, SIZES * TILE_SIZE, 1); // width, height, cellSize
+        preprocessing(); //do things at start
+        spawnPlayer();
+        spawnEnemy(); 
     }
-    private boolean map[][] = new boolean[sizes][sizes];//Map 2D array, true == wall presented
+    private boolean grid = new boolean[SIZES][SIZES];//Map 2D array, true == wall presented
     //size may vary later, make sure use getLength when accessing
     /**
      * An example of a method - replace this comment with your own
@@ -24,18 +31,47 @@ public class mapAura
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public boolean in(int x,int y){//check if reached out of bounds
-        return x >= 0 && y >= 0 && x < mapAura.getLength() && y < mapAura.getLength() && !mapAura.get(x,y);//get returns true when wall is there.
+
+    private void spawnPlayer()
+    {
+        player = new Player();
+        addObject(player, TILE_SIZE * 3, TILE_SIZE * 3);
     }
-    public int getLength() // return the size of 2D array map
+
+    private void preprocessing()
+    {
+        // wil do later, set up aura_point first
+    }
+    
+   public void spawnEnemy()//literally spawns enemy at random location
+    {
+        enemy_Lebron_67 e = new enemy_Lebron_67(player);
+        int x = Greenfoot.getRandomNumber(getWidth());
+        int y = Greenfoot.getRandomNumber(getHeight());
+        addObject(e, x, y);
+    }
+    //the get methods for outside & inside to call and not mess up
+    public int[][] getGrid()
+    {
+        return grid;
+    }
+
+    public int getTileSize()
+    {
+        return TILE_SIZE;
+    }
+
+    public int getLength() // return the size of the 2D array map
+    {
+        return grid.length;
+    }
+     public boolean getWall(int x,int y) // return the size of 2D array map
     {
         // put your code here
-        return map.length;//may varies later
+        if (x < 0 || y < 0 || x >= SIZES || y >= SIZES) return true;
+        return grid[x][y] == 1;
     }
-     public boolean get(int x,int y) // return the size of 2D array map
-    {
-        // put your code here
-        if(mapAura.in(x,y)) return map[x][y];
-        return false;//may varies later
-    }
+    // public boolean in(int x,int y){//check if reached out of bounds
+    //     return x >= 0 && y >= 0 && x < this.getLength() && y < this.getLength() && !this.getall(x,y);//get returns true when wall is there.
+    // }
 }
