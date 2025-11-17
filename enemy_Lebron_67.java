@@ -54,7 +54,7 @@ public class enemy_Lebron_67 extends Actor
         int enemyX = getX();
         int enemyY = getY();
         int targetX = target.getX();
-        int targetY = target.getY();//Thank you VS code for ur auto fil in of some codes :)
+        int targetY = target.getY();
         
         //calculate direction to move
         int deltaX = targetX - enemyX;
