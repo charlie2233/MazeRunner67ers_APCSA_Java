@@ -13,6 +13,7 @@ public class mapAura extends World
     private static final int SIZES = 25;//size of map 2D array
     private static final int TILE_SIZE = 20;// 20 pixels per tile
     private Player player;
+    private arraylist <Player> enemies = new arraylist<Player>();
 
     //used mapAura as a reference to the object, will change later.
     /**

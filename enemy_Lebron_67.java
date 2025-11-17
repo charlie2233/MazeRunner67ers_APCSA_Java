@@ -27,7 +27,7 @@ public class enemy_Lebron_67 extends Actor
     {
         int index = Greenfoot.getRandomNumber(6);
         //get random image of enemy
-        GreenfootImage img = new GreenfootImage("enemy/" + ENEMYIMAGES[index]);
+        GreenfootImage img = new GreenfootImage("enemy/" + ENEMYIMAGES[index]);//fixed routes
         setImage(img);
     }
 
@@ -78,8 +78,8 @@ public class enemy_Lebron_67 extends Actor
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    public int sampleMethod(int y)
-    {
-            // put your code here
-    }
+    // public int sampleMethod(int y)
+    // {
+    //         // put your code here
+    // }
 }
