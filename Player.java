@@ -19,6 +19,8 @@ public class Player extends actor
     public Player()
     {
         mapAura = new mapAura()
+        GreenfootImage img67ers = new GreenfootImage("accesories/" + "siz_Seven_Kid.jpg");//fixed routes
+        setImage(img67ers);
     }
 
     // /**
