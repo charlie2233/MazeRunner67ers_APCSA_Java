@@ -1,3 +1,5 @@
+import greenfoot.*; //add import just in case.
+import java.util.*;
 /**
  * Write a description of class mapAura here.
  * 
@@ -23,7 +25,7 @@ public class mapAura extends World
         spawnPlayer();
         spawnEnemy(); 
     }
-    private boolean grid = new boolean[SIZES][SIZES];//Map 2D array, true == wall presented
+    private boolean[][] grid = new boolean[SIZES][SIZES];//Map 2D array, true == wall presented
     //size may vary later, make sure use getLength when accessing
     /**
      * An example of a method - replace this comment with your own
@@ -51,7 +53,7 @@ public class mapAura extends World
         addObject(e, x, y);
     }
     //the get methods for outside & inside to call and not mess up
-    public int[][] getGrid()
+    public boolean[][] getGrid()
     {
         return grid;
     }
@@ -69,7 +71,7 @@ public class mapAura extends World
     {
         // put your code here
         if (x < 0 || y < 0 || x >= SIZES || y >= SIZES) return true;
-        return grid[x][y] == 1;
+        return grid[x][y] == true;
     }
     // public boolean in(int x,int y){//check if reached out of bounds
     //     return x >= 0 && y >= 0 && x < this.getLength() && y < this.getLength() && !this.getall(x,y);//get returns true when wall is there.
